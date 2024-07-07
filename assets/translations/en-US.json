@@ -5,5 +5,13 @@
     "table": "Table",
     "more": "More",
     "settings": "Settings",
-    "tickets": "Tickets"
+    "tickets": "Tickets",
+    "yesterday": "Yesterday",
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "friendly": "Friendlies",
+    "nextMatch": "next Match",
+    "lastMatches": "last Matches",
+    "played": "Played",
+    "incoming": "Incoming"
 }

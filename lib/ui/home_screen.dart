@@ -1,17 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_octicons/flutter_octicons.dart';
 import 'package:go_router/go_router.dart';
-import 'package:iconic/iconic.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:motorappka/core/drawer_element.dart';
 import 'package:motorappka/ui/home/home_page.dart';
 import 'package:motorappka/ui/matches/matches_page.dart';
-import 'package:motorappka/ui/more/more_page.dart';
 import 'package:motorappka/ui/news/news_page.dart';
 import 'package:motorappka/ui/table/table_page.dart';
 import 'package:motorappka/utils/app_themes.dart';
+import 'package:motorappka/utils/extensions.dart';
 import 'package:motorappka/utils/utils.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -26,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawerEdgeDragWidth: context.width * 0.2,
       endDrawer: MotorDrawer(
         onChanged: (page) => setState(() => _currentPage = page),
       ),

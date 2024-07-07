@@ -5,5 +5,13 @@
     "table": "Tabela",
     "more": "Więcej",
     "settings": "Ustawienia",
-    "tickets": "Bilety"
+    "tickets": "Bilety",
+    "yesterday": "Wczoraj",
+    "today": "Dzisiaj",
+    "tomorrow": "Jutro",
+    "friendly": "Towarzyski",
+    "nextMatch": "następny mecz",
+    "lastMatches": "ostatnie mecze",
+    "played": "Rozegrane",
+    "incoming": "Nadchodzące"
 }

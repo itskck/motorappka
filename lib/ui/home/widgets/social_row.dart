@@ -7,12 +7,12 @@ import 'package:url_launcher/url_launcher.dart';
 
 class SocialRow extends StatelessWidget {
   const SocialRow({super.key});
-  final double height = 40;
+  final double height = 60;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return Wrap(
+      alignment: WrapAlignment.center,
       children: [
         IconButton(
           onPressed: () =>

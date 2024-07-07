@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:motorappka/bloc/last_matches/last_matches_cubit.dart';
+import 'package:motorappka/bloc/upcoming_matches/upcoming_matches_cubit.dart';
 import 'package:motorappka/core/routes.dart';
 import 'package:motorappka/utils/app_themes.dart';
 
@@ -42,7 +45,11 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> _loadData(BuildContext context) async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.wait([
+      context.read<LastMatchesCubit>().fetchLastMatches(),
+      context.read<UpcomingMatchesCubit>().fetchUpcomingMatches(),
+    ]);
+
     // ignore: use_build_context_synchronously
     if (mounted) context.go(Routes.home);
   }

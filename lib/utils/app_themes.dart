@@ -11,6 +11,7 @@ class AppThemes {
   static final ThemeData theme = ThemeData(
     colorSchemeSeed: Colors.yellow,
     iconTheme: const IconThemeData(color: motorYellow),
+    fontFamily: 'Anton',
     useMaterial3: true,
   );
 }
