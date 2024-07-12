@@ -13,6 +13,7 @@ class SocialRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Wrap(
       alignment: WrapAlignment.center,
+      spacing: 20,
       children: [
         IconButton(
           onPressed: () =>

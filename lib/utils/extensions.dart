@@ -18,12 +18,14 @@ extension DateTimeExtension on DateTime {
 
     var timeString = ', $hour:$minute';
 
-    if (timeString == ', 00:00') timeString = '';
+    if (timeString == ', 00:00' || hour.isEmpty || minute.isEmpty) {
+      timeString = '';
+    }
 
-    if (isYesterday) return '${context.tr('yesterday')}, $timeString';
-    if (isToday) return '${context.tr('today')}, $timeString';
-    if (isTomorrow) return '${context.tr('tomorrow')}, $timeString';
-    return '$day.$month.$year';
+    if (isYesterday) return '${context.tr('yesterday')}$timeString';
+    if (isToday) return '${context.tr('today')}$timeString';
+    if (isTomorrow) return '${context.tr('tomorrow')}$timeString';
+    return '$day.$month.$year$timeString';
   }
 }
 

@@ -34,7 +34,7 @@ mixin _$FootballMatch {
   String? get awayScore => throw _privateConstructorUsedError;
   @JsonKey(name: 'strTimestamp')
   String? get date => throw _privateConstructorUsedError;
-  @JsonKey(name: 'strTimeLocal')
+  @JsonKey(name: 'strTime')
   String? get time => throw _privateConstructorUsedError;
   @JsonKey(name: 'strHomeTeamBadge')
   String? get homeBadge => throw _privateConstructorUsedError;
@@ -61,7 +61,7 @@ abstract class $FootballMatchCopyWith<$Res> {
       @JsonKey(name: 'intHomeScore') String? homeScore,
       @JsonKey(name: 'intAwayScore') String? awayScore,
       @JsonKey(name: 'strTimestamp') String? date,
-      @JsonKey(name: 'strTimeLocal') String? time,
+      @JsonKey(name: 'strTime') String? time,
       @JsonKey(name: 'strHomeTeamBadge') String? homeBadge,
       @JsonKey(name: 'strAwayTeamBadge') String? awayBadge});
 }
@@ -151,7 +151,7 @@ abstract class _$$FootballMatchImplCopyWith<$Res>
       @JsonKey(name: 'intHomeScore') String? homeScore,
       @JsonKey(name: 'intAwayScore') String? awayScore,
       @JsonKey(name: 'strTimestamp') String? date,
-      @JsonKey(name: 'strTimeLocal') String? time,
+      @JsonKey(name: 'strTime') String? time,
       @JsonKey(name: 'strHomeTeamBadge') String? homeBadge,
       @JsonKey(name: 'strAwayTeamBadge') String? awayBadge});
 }
@@ -225,8 +225,8 @@ class __$$FootballMatchImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FootballMatchImpl implements _FootballMatch {
-  const _$FootballMatchImpl(
+class _$FootballMatchImpl extends _FootballMatch {
+  _$FootballMatchImpl(
       {@JsonKey(name: 'strEvent') this.name,
       @JsonKey(name: 'strLeague') this.league,
       @JsonKey(name: 'strHomeTeam') this.homeTeam,
@@ -234,9 +234,10 @@ class _$FootballMatchImpl implements _FootballMatch {
       @JsonKey(name: 'intHomeScore') this.homeScore,
       @JsonKey(name: 'intAwayScore') this.awayScore,
       @JsonKey(name: 'strTimestamp') this.date,
-      @JsonKey(name: 'strTimeLocal') this.time,
+      @JsonKey(name: 'strTime') this.time,
       @JsonKey(name: 'strHomeTeamBadge') this.homeBadge,
-      @JsonKey(name: 'strAwayTeamBadge') this.awayBadge});
+      @JsonKey(name: 'strAwayTeamBadge') this.awayBadge})
+      : super._();
 
   factory _$FootballMatchImpl.fromJson(Map<String, dynamic> json) =>
       _$$FootballMatchImplFromJson(json);
@@ -263,7 +264,7 @@ class _$FootballMatchImpl implements _FootballMatch {
   @JsonKey(name: 'strTimestamp')
   final String? date;
   @override
-  @JsonKey(name: 'strTimeLocal')
+  @JsonKey(name: 'strTime')
   final String? time;
   @override
   @JsonKey(name: 'strHomeTeamBadge')
@@ -319,8 +320,8 @@ class _$FootballMatchImpl implements _FootballMatch {
   }
 }
 
-abstract class _FootballMatch implements FootballMatch {
-  const factory _FootballMatch(
+abstract class _FootballMatch extends FootballMatch {
+  factory _FootballMatch(
           {@JsonKey(name: 'strEvent') final String? name,
           @JsonKey(name: 'strLeague') final String? league,
           @JsonKey(name: 'strHomeTeam') final String? homeTeam,
@@ -328,10 +329,11 @@ abstract class _FootballMatch implements FootballMatch {
           @JsonKey(name: 'intHomeScore') final String? homeScore,
           @JsonKey(name: 'intAwayScore') final String? awayScore,
           @JsonKey(name: 'strTimestamp') final String? date,
-          @JsonKey(name: 'strTimeLocal') final String? time,
+          @JsonKey(name: 'strTime') final String? time,
           @JsonKey(name: 'strHomeTeamBadge') final String? homeBadge,
           @JsonKey(name: 'strAwayTeamBadge') final String? awayBadge}) =
       _$FootballMatchImpl;
+  _FootballMatch._() : super._();
 
   factory _FootballMatch.fromJson(Map<String, dynamic> json) =
       _$FootballMatchImpl.fromJson;
@@ -358,7 +360,7 @@ abstract class _FootballMatch implements FootballMatch {
   @JsonKey(name: 'strTimestamp')
   String? get date;
   @override
-  @JsonKey(name: 'strTimeLocal')
+  @JsonKey(name: 'strTime')
   String? get time;
   @override
   @JsonKey(name: 'strHomeTeamBadge')

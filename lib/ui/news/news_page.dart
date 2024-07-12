@@ -18,10 +18,17 @@ class NewsPage extends StatefulWidget implements DrawerElement {
 }
 
 class _NewsPageState extends State<NewsPage> {
-  final controller = WebViewController()
-    ..setJavaScriptMode(JavaScriptMode.unrestricted)
-    ..setBackgroundColor(const Color(0x00000000))
-    ..loadRequest(Uri.parse('https://https://www.motorlublin.eu/aktualnosci'));
+  late final WebViewController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setBackgroundColor(const Color.fromARGB(255, 255, 255, 255))
+      ..loadRequest(Uri.parse('https://www.motorlublin.eu/aktualnosci'));
+  }
+
   @override
   Widget build(BuildContext context) {
     return WebViewWidget(controller: controller);

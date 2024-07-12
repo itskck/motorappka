@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:motorappka/ui/common/cached_image.dart';
 import 'package:motorappka/utils/app_themes.dart';
 
 class HomeBanner extends StatelessWidget {
@@ -24,7 +25,7 @@ class HomeBanner extends StatelessWidget {
           child: Stack(
             fit: StackFit.expand,
             children: [
-              Image.network(imageUrl, fit: BoxFit.cover),
+              CachedImage(imageUrl, fit: BoxFit.cover),
               ClipRRect(
                 // Clip it cleanly.
                 child: BackdropFilter(

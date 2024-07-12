@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:motorappka/bloc/upcoming_matches/upcoming_matches_cubit.dart';
 import 'package:motorappka/bloc/upcoming_matches/upcoming_matches_state.dart';
 import 'package:motorappka/data/sports_api/models/match/match.dart';
+import 'package:motorappka/ui/common/cached_image.dart';
 import 'package:motorappka/utils/app_themes.dart';
 import 'package:motorappka/utils/extensions.dart';
 
@@ -73,8 +74,9 @@ class UpcomingMatchBannerBody extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              if (match.date != null)
-                Text(DateTime.parse(match.date!).showable(context),
+              if (match.date != null &&
+                  match.localizedDateTime.isAfter(DateTime.now()))
+                Text(match.localizedDateTime.showable(context),
                     style: _deafultTextStyle),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8),
@@ -84,11 +86,11 @@ class UpcomingMatchBannerBody extends StatelessWidget {
                     const Spacer(
                       flex: 2,
                     ),
-                    Image.network(
+                    CachedImage(
                       match.homeBadge ?? '',
                       height: 50,
                     ),
-                    Image.network(
+                    CachedImage(
                       match.awayBadge ?? '',
                       height: 50,
                     ),

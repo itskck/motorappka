@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:motorappka/data/sports_api/models/match/response/incoming_matches_response.dart';
 import 'package:motorappka/data/sports_api/models/match/response/last_matches_response.dart';
+import 'package:motorappka/data/sports_api/models/table/sport_table_response.dart';
 import 'package:motorappka/data/sports_api/network/sport_api_client.dart';
 
 class SportApiService {
@@ -16,5 +17,11 @@ class SportApiService {
     final response = await _sportApiClient.fetchUpcomingMatches();
 
     return IncomingMatchesResponse.fromJson(response.data);
+  }
+
+  Future<SportTableResponse> fetchLeagueTable() async {
+    final response = await _sportApiClient.fetchLeagueTable();
+
+    return SportTableResponse.fromJson(response.data);
   }
 }

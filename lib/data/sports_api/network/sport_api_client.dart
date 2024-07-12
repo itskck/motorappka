@@ -18,4 +18,9 @@ class SportApiClient {
     return _dio.get(
         '${Constants.sportsApiBaseUrl}/api/v2/json/${Constants.sportsApiKey}/schedual/next/team/${Constants.motorSportsApiId}');
   }
+
+  Future<Response> fetchLeagueTable() async {
+    return _dio.get(
+        '${Constants.sportsApiBaseUrl}/api/v1/json/${Constants.sportsApiKey}/lookuptable.php?l=${Constants.ekstraklasaSportsApiId}&s=${Constants.currentSeason}');
+  }
 }

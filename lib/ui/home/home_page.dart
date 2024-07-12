@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,6 +40,12 @@ class HomePage extends StatelessWidget implements DrawerElement {
         ),
         const UpcommingMatchBanner(),
         const LastMatchBanner(),
+        HomeBanner(
+          imageUrl:
+              'https://www.motorlublin.eu/img/gallery_photo/14040/gb9-9677_normal.jpg?v=1717166512',
+          title: 'Sklep',
+          onTap: () => Utils.openUrl('https://sklep.motorlublin.eu/'),
+        ),
         const SocialRow(),
         const SizedBox(height: 50),
       ];

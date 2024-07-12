@@ -9,6 +9,7 @@ class UpcomingMatchesCubit extends Cubit<UpcomingMatchesState> {
 
   Future<void> fetchUpcomingMatches() async {
     try {
+      emit(UpcomingMatchesState.loading());
       final matches = await _sportApiService.fetchUpcomingMatches();
 
       if (matches == null || matches.results == null) {

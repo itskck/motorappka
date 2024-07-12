@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "771669785347",
+    "project_id": "motorappka",
+    "storage_bucket": "motorappka.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:771669785347:android:bfcecc134b4cfddac14736",
+        "android_client_info": {
+          "package_name": "com.example.motorappka"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCW3XiW8ik3_G1QkPdL-2n36ZkDh32CsGc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:motorappka/bloc/last_matches/last_matches_cubit.dart';
 import 'package:motorappka/bloc/last_matches/last_matches_state.dart';
 import 'package:motorappka/data/sports_api/models/match/match.dart';
+import 'package:motorappka/ui/common/cached_image.dart';
 
 import 'package:motorappka/utils/app_themes.dart';
 import 'package:motorappka/utils/extensions.dart';
@@ -142,72 +143,68 @@ class _LastMatchBannerBodyState extends State<LastMatchBannerBody>
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LastMatchesCubit, LastMatchesState>(
-      builder: (context, state) {
-        return InkWell(
-            child: Container(
-          decoration: BoxDecoration(
-            color: AppThemes.motorBlue,
-            border: Border.all(color: AppThemes.motorBlue, width: 0),
-          ),
-          width: context.width * 0.8,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              if (widget.match.date != null)
-                Text(DateTime.parse(widget.match.date!).showable(context),
-                    style: _deafultTextStyle),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
+    return InkWell(
+        child: Container(
+      decoration: BoxDecoration(
+        color: AppThemes.motorBlue,
+        border: Border.all(color: AppThemes.motorBlue, width: 0),
+      ),
+      width: context.width * 0.8,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          if (widget.match.date != null)
+            Text(widget.match.localizedDateTime.showable(context),
+                style: _deafultTextStyle),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                const Spacer(
+                  flex: 2,
+                ),
+                CachedImage(
+                  widget.match.homeBadge ?? '',
+                  height: 50,
+                ),
+                const Spacer(),
+                Row(
                   children: [
-                    const Spacer(
-                      flex: 2,
+                    AnimatedBuilder(
+                      animation: controller,
+                      builder: (context, widget) =>
+                          _buildHomeAnimatedScore(context, widget),
                     ),
-                    Image.network(
-                      widget.match.homeBadge ?? '',
-                      height: 50,
+                    Text(
+                      ' : ',
+                      style: _scoreTextStyle,
                     ),
-                    const Spacer(),
-                    Row(
-                      children: [
-                        AnimatedBuilder(
-                          animation: controller,
-                          builder: (context, widget) =>
-                              _buildHomeAnimatedScore(context, widget),
-                        ),
-                        Text(
-                          ' : ',
-                          style: _scoreTextStyle,
-                        ),
-                        AnimatedBuilder(
-                          animation: controller,
-                          builder: (context, widget) =>
-                              _buildAwayAnimatedScore(context, widget),
-                        ),
-                      ],
-                    ),
-                    const Spacer(),
-                    Image.network(
-                      widget.match.awayBadge ?? '',
-                      height: 50,
-                    ),
-                    const Spacer(
-                      flex: 2,
+                    AnimatedBuilder(
+                      animation: controller,
+                      builder: (context, widget) =>
+                          _buildAwayAnimatedScore(context, widget),
                     ),
                   ],
                 ),
-              ),
-              Text(
-                widget.match.showableLeague(context),
-                style: _deafultTextStyle,
-              )
-            ],
+                const Spacer(),
+                CachedImage(
+                  widget.match.awayBadge ?? '',
+                  height: 50,
+                ),
+                const Spacer(
+                  flex: 2,
+                ),
+              ],
+            ),
           ),
-        ));
-      },
-    );
+          Text(
+            widget.match.showableLeague(context),
+            style: _deafultTextStyle,
+          )
+        ],
+      ),
+    ));
   }
 
   @override

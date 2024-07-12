@@ -15,7 +15,7 @@ _$FootballMatchImpl _$$FootballMatchImplFromJson(Map<String, dynamic> json) =>
       homeScore: json['intHomeScore'] as String?,
       awayScore: json['intAwayScore'] as String?,
       date: json['strTimestamp'] as String?,
-      time: json['strTimeLocal'] as String?,
+      time: json['strTime'] as String?,
       homeBadge: json['strHomeTeamBadge'] as String?,
       awayBadge: json['strAwayTeamBadge'] as String?,
     );
@@ -29,7 +29,7 @@ Map<String, dynamic> _$$FootballMatchImplToJson(_$FootballMatchImpl instance) =>
       'intHomeScore': instance.homeScore,
       'intAwayScore': instance.awayScore,
       'strTimestamp': instance.date,
-      'strTimeLocal': instance.time,
+      'strTime': instance.time,
       'strHomeTeamBadge': instance.homeBadge,
       'strAwayTeamBadge': instance.awayBadge,
     };
