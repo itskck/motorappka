@@ -1,9 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:motorappka/utils/app_themes.dart';
 import 'package:motorappka/utils/utils.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class SocialRow extends StatelessWidget {
   const SocialRow({super.key});
@@ -21,7 +18,7 @@ class SocialRow extends StatelessWidget {
           icon: Image.asset(
             'assets/images/facebook.png',
             height: height,
-            color: AppThemes.motorBlue,
+            color: AppThemes.blue(context),
             colorBlendMode: BlendMode.srcIn,
           ),
         ),
@@ -31,7 +28,7 @@ class SocialRow extends StatelessWidget {
           icon: Image.asset(
             'assets/images/instagram.png',
             height: height,
-            color: AppThemes.motorBlue,
+            color: AppThemes.blue(context),
             colorBlendMode: BlendMode.srcIn,
           ),
         ),
@@ -40,7 +37,7 @@ class SocialRow extends StatelessWidget {
           icon: Image.asset(
             'assets/images/twitterx.png',
             height: height,
-            color: AppThemes.motorBlue,
+            color: AppThemes.blue(context),
             colorBlendMode: BlendMode.srcIn,
           ),
         ),
@@ -50,7 +47,7 @@ class SocialRow extends StatelessWidget {
           icon: Image.asset(
             'assets/images/tiktok.png',
             height: height,
-            color: AppThemes.motorBlue,
+            color: AppThemes.blue(context),
             colorBlendMode: BlendMode.srcIn,
           ),
         ),
@@ -61,7 +58,7 @@ class SocialRow extends StatelessWidget {
             'assets/images/youtube.png',
             height: height,
             fit: BoxFit.cover,
-            color: AppThemes.motorBlue,
+            color: AppThemes.blue(context),
             colorBlendMode: BlendMode.srcIn,
           ),
         ),
@@ -71,7 +68,7 @@ class SocialRow extends StatelessWidget {
             'assets/images/browser.png',
             height: height - 5,
             fit: BoxFit.cover,
-            color: AppThemes.motorBlue,
+            color: AppThemes.blue(context),
             colorBlendMode: BlendMode.srcIn,
           ),
         ),

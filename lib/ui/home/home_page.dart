@@ -24,18 +24,18 @@ class HomePage extends StatelessWidget implements DrawerElement {
       },
       child: ListView.separated(
         physics: const BouncingScrollPhysics(),
-        itemCount: _children.length,
-        itemBuilder: (context, index) => _children[index],
+        itemCount: _children().length,
+        itemBuilder: (context, index) => _children()[index],
         separatorBuilder: (context, index) => const SizedBox(height: 24),
       ),
     );
   }
 
-  List<Widget> get _children => [
+  List<Widget> _children() => [
         HomeBanner(
           imageUrl:
               'https://www.motorlublin.eu/img/gallery_photo/13968/dsc-8590_normal.jpg?v=1717166512',
-          title: 'Bilety',
+          title: 'tickets'.tr(),
           onTap: () => Utils.openUrl('https://bilety.motorlublin.eu/'),
         ),
         const UpcommingMatchBanner(),
@@ -43,7 +43,7 @@ class HomePage extends StatelessWidget implements DrawerElement {
         HomeBanner(
           imageUrl:
               'https://www.motorlublin.eu/img/gallery_photo/14040/gb9-9677_normal.jpg?v=1717166512',
-          title: 'Sklep',
+          title: 'shop'.tr(),
           onTap: () => Utils.openUrl('https://sklep.motorlublin.eu/'),
         ),
         const SocialRow(),

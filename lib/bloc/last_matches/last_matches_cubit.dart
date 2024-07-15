@@ -12,8 +12,15 @@ class LastMatchesCubit extends Cubit<LastMatchesState> {
     try {
       final matches = await _sportApiService.getLastFiveMatches();
 
-      final List<FootballMatch> matchesToEmit =
-          matches?.results != null ? matches!.results! : [];
+      final List<FootballMatch> matchesToEmit = (matches?.results ?? [])
+          .where(
+            (e) =>
+                e.date != null &&
+                e.localizedDateTime.isBefore(DateTime.now()) &&
+                e.homeBadge != null &&
+                e.awayBadge != null,
+          )
+          .toList();
 
       emit(
         LastMatchesState.fetched(

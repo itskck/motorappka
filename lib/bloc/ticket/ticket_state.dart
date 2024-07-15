@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:motorappka/data/contentful/models/ticket/ticket.dart';
+import 'package:motorappka/data/ticket/ticket.dart';
 
 part 'ticket_state.freezed.dart';
 part 'ticket_state.g.dart';

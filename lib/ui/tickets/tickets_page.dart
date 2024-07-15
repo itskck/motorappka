@@ -3,7 +3,6 @@
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:floating_draggable_widget/floating_draggable_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -11,12 +10,11 @@ import 'package:motorappka/bloc/ticket/ticket_cubit.dart';
 import 'package:motorappka/bloc/ticket/ticket_state.dart';
 import 'package:motorappka/core/drawer_element.dart';
 import 'package:motorappka/core/routes.dart';
-import 'package:motorappka/data/contentful/models/ticket/ticket.dart';
+import 'package:motorappka/data/ticket/ticket.dart';
 import 'package:motorappka/ui/common/cached_image.dart';
 import 'package:motorappka/ui/tickets/widgets/ticket_add_dialog.dart';
 import 'package:motorappka/utils/app_themes.dart';
 import 'package:motorappka/utils/extensions.dart';
-import 'package:simple_barcode_scanner/simple_barcode_scanner.dart';
 
 class TicketsPage extends StatelessWidget implements DrawerElement {
   const TicketsPage({super.key});
@@ -28,7 +26,7 @@ class TicketsPage extends StatelessWidget implements DrawerElement {
         backgroundColor: AppThemes.motorYellow,
         onPressed: () async {
           var res = await context.push(Routes.scan);
-          if (res != null && res is String) {
+          if (res != null && res is String && res != '-1') {
             await showAdaptiveDialog(
                 context: context,
                 builder: (context) => TicketAddDialog(
@@ -36,9 +34,9 @@ class TicketsPage extends StatelessWidget implements DrawerElement {
                     ));
           }
         },
-        child: const Icon(
+        child: Icon(
           Icons.add,
-          color: AppThemes.motorBlue,
+          color: AppThemes.blue(context),
         ),
       ),
       body: SingleChildScrollView(
@@ -86,7 +84,7 @@ class TicketPageElement extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: DottedBorder(
-        color: AppThemes.motorBlue,
+        color: AppThemes.blue(context),
         strokeWidth: 5,
         dashPattern: const [12, 12],
         strokeCap: StrokeCap.round,
@@ -94,8 +92,8 @@ class TicketPageElement extends StatelessWidget {
         padding: EdgeInsets.zero,
         child: Container(
           width: context.width * 0.8,
-          decoration: const BoxDecoration(
-            color: AppThemes.motorBlue,
+          decoration: BoxDecoration(
+            color: AppThemes.blue(context),
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 8),
@@ -134,7 +132,7 @@ class TicketPageElement extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 20),
                       barcode: Barcode.gs128(),
                       color: Colors.white,
-                      backgroundColor: AppThemes.motorBlue,
+                      backgroundColor: AppThemes.blue(context),
                       data: ticket.barcode,
                       drawText: true,
                       style: _deafultTextStyle,
@@ -145,7 +143,25 @@ class TicketPageElement extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () => showModalBottomSheet(
+                              context: context,
+                              builder: (context) => Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  SizedBox(
+                                    height: 200,
+                                    child: BarcodeWidget(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          16, 16, 16, 0),
+                                      barcode: Barcode.gs128(),
+                                      data: ticket.barcode,
+                                      style: _deafultTextStyle,
+                                      textPadding: 0,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                             icon: const Icon(
                               Icons.document_scanner,
                               size: 40,

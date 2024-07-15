@@ -1,6 +1,6 @@
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:motorappka/bloc/ticket/ticket_state.dart';
-import 'package:motorappka/data/contentful/models/ticket/ticket.dart';
+import 'package:motorappka/data/ticket/ticket.dart';
 
 class TicketCubit extends HydratedCubit<TicketsState> {
   TicketCubit() : super(TicketsState.data([]));

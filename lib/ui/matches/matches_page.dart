@@ -1,4 +1,3 @@
-import 'package:community_material_icon/community_material_icon.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,6 +7,7 @@ import 'package:motorappka/bloc/last_matches/last_matches_state.dart';
 import 'package:motorappka/bloc/upcoming_matches/upcoming_matches_cubit.dart';
 import 'package:motorappka/bloc/upcoming_matches/upcoming_matches_state.dart';
 import 'package:motorappka/core/drawer_element.dart';
+import 'package:motorappka/ui/common/loading_widget.dart';
 import 'package:motorappka/ui/home/widgets/last_match_banner.dart';
 import 'package:motorappka/ui/home/widgets/upcomming_match_banner.dart';
 
@@ -83,7 +83,7 @@ class UpcomingSection extends StatelessWidget {
     return BlocBuilder<UpcomingMatchesCubit, UpcomingMatchesState>(
         builder: (context, state) {
       return state.map(
-        loading: (_) => const CircularProgressIndicator(),
+        loading: (_) => const LoadingWidget(),
         fetched: (matches) {
           return ListView.separated(
             itemCount: matches.matches.length,

@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:motorappka/data/sports_api/models/match/response/last_matches_response.dart';
 import 'package:motorappka/utils/constants.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 

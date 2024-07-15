@@ -5,6 +5,7 @@ import 'package:motorappka/bloc/league_table/league_table_cubit.dart';
 import 'package:motorappka/bloc/last_matches/last_matches_cubit.dart';
 import 'package:motorappka/bloc/upcoming_matches/upcoming_matches_cubit.dart';
 import 'package:motorappka/core/routes.dart';
+import 'package:motorappka/ui/common/loading_widget.dart';
 import 'package:motorappka/utils/app_themes.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -24,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppThemes.motorBlue,
+      backgroundColor: AppThemes.blue(context),
       body: SafeArea(
         child: Center(
           child: Column(
@@ -35,9 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 height: 100,
               ),
               const SizedBox(height: 20),
-              const CircularProgressIndicator(
-                color: AppThemes.motorYellow,
-              ),
+              const LoadingWidget(),
             ],
           ),
         ),

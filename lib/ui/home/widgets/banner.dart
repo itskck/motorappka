@@ -31,18 +31,18 @@ class HomeBanner extends StatelessWidget {
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
                   child: Container(
-                    color: AppThemes.motorBlue.withOpacity(0.5),
+                    color: AppThemes.blue(context).withOpacity(0.5),
                     alignment: Alignment.center,
                     child: Center(
                       child: Text(
                         title.toUpperCase(),
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: AppThemes.motorYellow,
                           shadows: <Shadow>[
                             Shadow(
-                              offset: Offset(1, 1),
+                              offset: const Offset(1, 1),
                               blurRadius: 1,
-                              color: AppThemes.motorBlue,
+                              color: AppThemes.blue(context),
                             ),
                           ],
                           fontSize: 32,

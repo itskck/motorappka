@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:motorappka/bloc/league_table/league_table_cubit.dart';
 import 'package:motorappka/core/drawer_element.dart';
 import 'package:motorappka/ui/common/cached_image.dart';
+import 'package:motorappka/ui/common/loading_widget.dart';
 import 'package:motorappka/utils/app_themes.dart';
 
 class TablePage extends StatelessWidget implements DrawerElement {
@@ -14,12 +15,12 @@ class TablePage extends StatelessWidget implements DrawerElement {
     return BlocBuilder<LeagueTableCubit, LeagueTableState>(
       builder: (context, state) {
         return state.maybeWhen(
-          loading: () => const CircularProgressIndicator(),
+          loading: () => const LoadingWidget(),
           loaded: (table) {
             return DataTable(
               columnSpacing: 1,
               columns: [
-                DataColumn(label: Text('')),
+                const DataColumn(label: Text('')),
                 DataColumn(label: Text('Klub'.tr())),
                 DataColumn(label: Text('RM'.tr())),
                 DataColumn(label: Text('W'.tr())),
@@ -36,7 +37,7 @@ class TablePage extends StatelessWidget implements DrawerElement {
                     selected: (int.parse(team.intRank) % 2 == 1),
                     color: team.strTeam.toLowerCase() == 'motor lublin'
                         ? WidgetStateColor.resolveWith(
-                            (_) => AppThemes.motorYellow)
+                            (_) => AppThemes.yellow(context))
                         : null,
                     cells: [
                       DataCell(
@@ -45,7 +46,7 @@ class TablePage extends StatelessWidget implements DrawerElement {
                           color: team.strDescription.toLowerCase() ==
                                   'UEFA Champions League Qualifiers'
                                       .toLowerCase()
-                              ? AppThemes.motorBlue
+                              ? AppThemes.blue(context)
                               : team.strDescription.toLowerCase() ==
                                       'UEFA Conference League Qualifiers'
                                           .toLowerCase()

@@ -7,16 +7,14 @@ class MorePage extends StatelessWidget implements DrawerElement {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text('More Page'),
     );
   }
 
   @override
-  // TODO: implement title
   String get title => 'more'.tr();
 
   @override
-  // TODO: implement icon
   IconData get icon => Icons.more_horiz;
 }

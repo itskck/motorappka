@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:motorappka/core/drawer_element.dart';
 import 'package:motorappka/ui/common/drawer.dart';
@@ -16,20 +19,33 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  DrawerElement _currentPage = const HomePage();
+  late DrawerElement _currentPage;
+  @override
+  void initState() {
+    super.initState();
+    _currentPage = const HomePage();
+  }
+
   @override
   Widget build(BuildContext context) {
     return PopScope(
-      canPop: true,
+      canPop: false,
       onPopInvoked: (didPop) {
         if (didPop) {
           return;
         }
-        final shouldPop = _currentPage.title == 'home'.tr();
+        final shouldPop = _currentPage is HomePage;
+        print('$shouldPop $_currentPage');
         if (shouldPop) {
-          context.pop();
+          SystemNavigator.pop();
         } else {
-          _currentPage = const HomePage();
+          if (mounted) {
+            setState(() {
+              _currentPage = const HomePage();
+            });
+          } else {
+            _currentPage = const HomePage();
+          }
         }
       },
       child: Scaffold(
@@ -56,14 +72,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                systemOverlayStyle: const SystemUiOverlayStyle(
-                  statusBarColor: AppThemes.motorBlue,
+                systemOverlayStyle: SystemUiOverlayStyle(
+                  statusBarColor: AppThemes.blue(context),
                   statusBarIconBrightness: Brightness.light,
                 ),
                 centerTitle: true,
-                flexibleSpace: const FlexibleSpaceBar(
+                flexibleSpace: FlexibleSpaceBar(
                     background: ColoredBox(
-                  color: AppThemes.motorBlue,
+                  color: AppThemes.blue(context),
                 )),
               ),
             ];

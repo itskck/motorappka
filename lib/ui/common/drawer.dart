@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:motorappka/core/drawer_element.dart';
+import 'package:motorappka/core/routes.dart';
 import 'package:motorappka/ui/home/home_page.dart';
 import 'package:motorappka/ui/matches/matches_page.dart';
 import 'package:motorappka/ui/news/news_page.dart';
 import 'package:motorappka/ui/table/table_page.dart';
 import 'package:motorappka/ui/tickets/tickets_page.dart';
 import 'package:motorappka/utils/app_themes.dart';
-import 'package:motorappka/utils/utils.dart';
 
 class MotorDrawer extends StatefulWidget {
   const MotorDrawer({super.key, required this.onChanged});
@@ -38,11 +38,11 @@ class _MotorDrawerState extends State<MotorDrawer> {
             return ListTile(
               leading: Icon(
                 page.icon,
-                color: AppThemes.motorBlue,
+                color: AppThemes.blueOrWhite(context),
               ),
               title: Text(
                 page.title,
-                style: const TextStyle(color: AppThemes.motorBlue),
+                style: TextStyle(color: AppThemes.blueOrWhite(context)),
               ),
               onTap: () {
                 context.pop();
@@ -54,11 +54,13 @@ class _MotorDrawerState extends State<MotorDrawer> {
           ListTile(
             title: Text(
               'settings'.tr(),
-              style: const TextStyle(color: AppThemes.motorBlue),
+              style: TextStyle(color: AppThemes.blueOrWhite(context)),
             ),
-            leading: const Icon(Ionicons.settings, color: AppThemes.motorBlue),
+            leading:
+                Icon(Ionicons.settings, color: AppThemes.blueOrWhite(context)),
             onTap: () {
               context.pop();
+              context.push(Routes.settings);
             },
           ),
         ]),

@@ -13,5 +13,9 @@
     "nextMatch": "next Match",
     "lastMatches": "last Matches",
     "played": "Played",
-    "incoming": "Incoming"
+    "incoming": "Upcoming",
+    "langueage": "Language",
+    "darkMode": "Dark mode",
+    "shop": "Shop",
+    "back_to_exit": "Press back again to exit"
 }
