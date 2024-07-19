@@ -17,5 +17,18 @@
     "langueage": "Language",
     "darkMode": "Dark mode",
     "shop": "Shop",
-    "back_to_exit": "Press back again to exit"
+    "back_to_exit": "Press back again to exit",
+    "club": "Klub",
+    "PL": "PL",
+    "W": "W",
+    "D": "D",
+    "L": "L",
+    "GF": "GF",
+    "GA": "GA",
+    "GD": "GD",
+    "PTS": "PTS",
+    "ticketScanned": "Ticket scanned",
+    "selectMatch": "Select match",
+    "close": "Close",
+    "add": "Add"
 }

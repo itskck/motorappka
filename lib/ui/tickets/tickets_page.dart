@@ -144,6 +144,7 @@ class TicketPageElement extends StatelessWidget {
                         children: [
                           IconButton(
                             onPressed: () => showModalBottomSheet(
+                              backgroundColor: Colors.white,
                               context: context,
                               builder: (context) => Column(
                                 mainAxisSize: MainAxisSize.min,
@@ -151,29 +152,31 @@ class TicketPageElement extends StatelessWidget {
                                   SizedBox(
                                     height: 200,
                                     child: BarcodeWidget(
-                                      padding: const EdgeInsets.fromLTRB(
-                                          16, 16, 16, 0),
-                                      barcode: Barcode.gs128(),
-                                      data: ticket.barcode,
-                                      style: _deafultTextStyle,
-                                      textPadding: 0,
-                                    ),
+                                        padding: const EdgeInsets.fromLTRB(
+                                            16, 16, 16, 4),
+                                        barcode: Barcode.gs128(),
+                                        data: ticket.barcode,
+                                        style: _deafultTextStyle,
+                                        drawText: false,
+                                        color: Colors.black),
                                   ),
                                 ],
                               ),
                             ),
-                            icon: const Icon(
+                            icon: Icon(
                               Icons.document_scanner,
                               size: 40,
+                              color: AppThemes.yellow(context),
                             ),
                           ),
                           IconButton(
                             onPressed: () => context
                                 .read<TicketCubit>()
                                 .removeTicket(ticket.id ?? ''),
-                            icon: const Icon(
+                            icon: Icon(
                               Icons.close,
                               size: 40,
+                              color: AppThemes.yellow(context),
                             ),
                           )
                         ],

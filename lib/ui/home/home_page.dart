@@ -38,7 +38,9 @@ class HomePage extends StatelessWidget implements DrawerElement {
           title: 'tickets'.tr(),
           onTap: () => Utils.openUrl('https://bilety.motorlublin.eu/'),
         ),
-        const UpcommingMatchBanner(),
+        UpcommingMatchBanner(
+          onTap: () {},
+        ),
         const LastMatchBanner(),
         HomeBanner(
           imageUrl:

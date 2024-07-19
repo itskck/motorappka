@@ -2,7 +2,7 @@ name: motorappka
 description: "Unofficial app for Motor Lublin fans."
 publish_to: 'none' 
 
-version: 0.2.0+2
+version: 0.2.1+3
 
 environment:
   sdk: '>=3.4.1 <4.0.0'

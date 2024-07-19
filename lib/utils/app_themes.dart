@@ -26,6 +26,12 @@ class AppThemes {
       EasyDynamicTheme.of(context).themeMode == ThemeMode.dark
           ? Colors.white
           : motorBlue;
+
+  static Color blackOrWhite(BuildContext context) =>
+      EasyDynamicTheme.of(context).themeMode == ThemeMode.dark
+          ? Colors.white
+          : Colors.black;
+
   // Theme
 
   static final ThemeData lightTheme = ThemeData(

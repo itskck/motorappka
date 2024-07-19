@@ -17,5 +17,18 @@
     "language": "Język",
     "darkMode": "Tryb ciemny",
     "shop": "Sklep",
-    "back_to_exit": "Naciśnij ponownie, aby wyjść"
+    "back_to_exit": "Naciśnij ponownie, aby wyjść",
+    "club": "Klub",
+    "PL": "M",
+    "W": "W",
+    "D": "R",
+    "L": "P",
+    "GF": "BS",
+    "GA": "BS",
+    "GD": "RB",
+    "PTS": "PKT",
+    "ticketScanned": "Bilet zeskanowany",
+    "selectMatch": "Wybierz mecz",
+    "close": "Zamknij",
+    "add": "Dodaj"
 }

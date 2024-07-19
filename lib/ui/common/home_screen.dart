@@ -1,10 +1,5 @@
-import 'dart:io';
-
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:motorappka/core/drawer_element.dart';
 import 'package:motorappka/ui/common/drawer.dart';
 import 'package:motorappka/ui/home/home_page.dart';
@@ -35,7 +30,6 @@ class _HomeScreenState extends State<HomeScreen> {
           return;
         }
         final shouldPop = _currentPage is HomePage;
-        print('$shouldPop $_currentPage');
         if (shouldPop) {
           SystemNavigator.pop();
         } else {

@@ -1,4 +1,5 @@
 import 'package:barcode_widget/barcode_widget.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -33,7 +34,7 @@ class _TicketAddDialogState extends State<TicketAddDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog.adaptive(
-      title: const Text('ticket scanned'),
+      title: Text('ticketScanned'.tr().toLowerCase()),
       content: BlocBuilder<UpcomingMatchesCubit, UpcomingMatchesState>(
         builder: (context, state) {
           return state.maybeMap(
@@ -42,31 +43,28 @@ class _TicketAddDialogState extends State<TicketAddDialog> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    ColoredBox(
-                      color: AppThemes.lightGrey,
-                      child: Center(
-                        child: DropdownButton<FootballMatch>(
-                          itemHeight: 110,
-                          iconEnabledColor: AppThemes.blue(context),
-                          hint: const Text('Select match'),
-                          items: value.matches
-                              .where((e) =>
-                                  e.name != null &&
-                                  e.homeScore == null &&
-                                  e.awayScore == null)
-                              .map((e) => DropdownMenuItem(
-                                    value: e,
-                                    alignment: Alignment.center,
-                                    child: MatchElement(match: e),
-                                  ))
-                              .toList(),
-                          value: match,
-                          onChanged: (value) {
-                            setState(() {
-                              match = value!;
-                            });
-                          },
-                        ),
+                    Center(
+                      child: DropdownButton<FootballMatch>(
+                        itemHeight: 110,
+                        iconEnabledColor: AppThemes.blue(context),
+                        hint: Text('selectMatch'.tr().toLowerCase()),
+                        items: value.matches
+                            .where((e) =>
+                                e.name != null &&
+                                e.homeScore == null &&
+                                e.awayScore == null)
+                            .map((e) => DropdownMenuItem(
+                                  value: e,
+                                  alignment: Alignment.center,
+                                  child: MatchElement(match: e),
+                                ))
+                            .toList(),
+                        value: match,
+                        onChanged: (value) {
+                          setState(() {
+                            match = value!;
+                          });
+                        },
                       ),
                     ),
                     BarcodeWidget(
@@ -76,6 +74,7 @@ class _TicketAddDialogState extends State<TicketAddDialog> {
                       textPadding: 20,
                       barcode: Barcode.gs128(),
                       data: widget.barcode,
+                      color: AppThemes.blueOrWhite(context),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -87,9 +86,9 @@ class _TicketAddDialogState extends State<TicketAddDialog> {
                           onPressed: () {
                             context.pop();
                           },
-                          child: const Text(
-                            'Close',
-                            style: TextStyle(fontSize: 20),
+                          child: Text(
+                            'close'.tr(),
+                            style: const TextStyle(fontSize: 20),
                           ),
                         ),
                         const SizedBox(
@@ -108,9 +107,9 @@ class _TicketAddDialogState extends State<TicketAddDialog> {
                                       ));
                                   context.pop();
                                 },
-                          child: const Text(
-                            'Add',
-                            style: TextStyle(fontSize: 20),
+                          child: Text(
+                            'add'.tr(),
+                            style: const TextStyle(fontSize: 20),
                           ),
                         ),
                       ],

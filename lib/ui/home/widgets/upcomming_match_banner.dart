@@ -10,7 +10,9 @@ import 'package:motorappka/utils/app_themes.dart';
 import 'package:motorappka/utils/extensions.dart';
 
 class UpcommingMatchBanner extends StatelessWidget {
-  const UpcommingMatchBanner({super.key});
+  const UpcommingMatchBanner({super.key, required this.onTap});
+
+  final VoidCallback onTap;
 
   @override
   build(BuildContext context) {

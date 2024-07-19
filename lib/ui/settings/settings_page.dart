@@ -54,9 +54,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 }).toList(),
               ),
             ),
-            SwitchListTile(
-              value: EasyDynamicTheme.of(context).themeMode == ThemeMode.dark,
-              onChanged: (_) => EasyDynamicTheme.of(context).changeTheme(),
+            ListTile(
+              trailing: EasyDynamicThemeSwitch(),
               title: Text(
                 'darkMode'.tr(),
               ),
