@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:771669785347:android:bfcecc134b4cfddac14736",
+        "mobilesdk_app_id": "1:771669785347:android:4346217917287247c14736",
         "android_client_info": {
-          "package_name": "com.example.motorappka"
+          "package_name": "com.juliuszpiskor.motorappka"
         }
       },
       "oauth_client": [],

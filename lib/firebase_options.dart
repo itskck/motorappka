@@ -63,6 +63,6 @@ class DefaultFirebaseOptions {
     messagingSenderId: '771669785347',
     projectId: 'motorappka',
     storageBucket: 'motorappka.appspot.com',
-    iosBundleId: 'com.example.motorappka',
+    iosBundleId: 'com.juliuszpiskor.motorappka',
   );
 }

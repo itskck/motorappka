@@ -1,4 +1,4 @@
-package com.example.motorappka
+package com.juliuszpiskor.motorappka
 
 import io.flutter.embedding.android.FlutterActivity
 
