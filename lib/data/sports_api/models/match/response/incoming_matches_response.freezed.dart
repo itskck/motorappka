@@ -21,7 +21,7 @@ IncomingMatchesResponse _$IncomingMatchesResponseFromJson(
 
 /// @nodoc
 mixin _$IncomingMatchesResponse {
-  @JsonKey(name: '1')
+  @JsonKey(name: 'events')
   List<FootballMatch>? get results => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ abstract class $IncomingMatchesResponseCopyWith<$Res> {
           $Res Function(IncomingMatchesResponse) then) =
       _$IncomingMatchesResponseCopyWithImpl<$Res, IncomingMatchesResponse>;
   @useResult
-  $Res call({@JsonKey(name: '1') List<FootballMatch>? results});
+  $Res call({@JsonKey(name: 'events') List<FootballMatch>? results});
 }
 
 /// @nodoc
@@ -73,7 +73,7 @@ abstract class _$$IncomingMatchesResponseImplCopyWith<$Res>
       __$$IncomingMatchesResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: '1') List<FootballMatch>? results});
+  $Res call({@JsonKey(name: 'events') List<FootballMatch>? results});
 }
 
 /// @nodoc
@@ -104,7 +104,7 @@ class __$$IncomingMatchesResponseImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$IncomingMatchesResponseImpl implements _IncomingMatchesResponse {
   _$IncomingMatchesResponseImpl(
-      @JsonKey(name: '1') final List<FootballMatch>? results)
+      @JsonKey(name: 'events') final List<FootballMatch>? results)
       : _results = results;
 
   factory _$IncomingMatchesResponseImpl.fromJson(Map<String, dynamic> json) =>
@@ -112,7 +112,7 @@ class _$IncomingMatchesResponseImpl implements _IncomingMatchesResponse {
 
   final List<FootballMatch>? _results;
   @override
-  @JsonKey(name: '1')
+  @JsonKey(name: 'events')
   List<FootballMatch>? get results {
     final value = _results;
     if (value == null) return null;
@@ -156,14 +156,14 @@ class _$IncomingMatchesResponseImpl implements _IncomingMatchesResponse {
 
 abstract class _IncomingMatchesResponse implements IncomingMatchesResponse {
   factory _IncomingMatchesResponse(
-          @JsonKey(name: '1') final List<FootballMatch>? results) =
+          @JsonKey(name: 'events') final List<FootballMatch>? results) =
       _$IncomingMatchesResponseImpl;
 
   factory _IncomingMatchesResponse.fromJson(Map<String, dynamic> json) =
       _$IncomingMatchesResponseImpl.fromJson;
 
   @override
-  @JsonKey(name: '1')
+  @JsonKey(name: 'events')
   List<FootballMatch>? get results;
   @override
   @JsonKey(ignore: true)

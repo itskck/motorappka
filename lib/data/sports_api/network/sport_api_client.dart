@@ -15,7 +15,7 @@ class SportApiClient {
 
   Future<Response> fetchUpcomingMatches() async {
     return _dio.get(
-        '${Constants.sportsApiBaseUrl}/api/v2/json/${Constants.sportsApiKey}/schedual/next/team/${Constants.motorSportsApiId}');
+        '${Constants.sportsApiBaseUrl}/api/v1/json/${Constants.sportsApiKey}/eventsnext.php?id=${Constants.motorSportsApiId}');
   }
 
   Future<Response> fetchLeagueTable() async {

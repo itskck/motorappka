@@ -9,7 +9,7 @@ part 'incoming_matches_response.g.dart';
 @freezed
 sealed class IncomingMatchesResponse with _$IncomingMatchesResponse {
   factory IncomingMatchesResponse(
-    @JsonKey(name: '1') List<FootballMatch>? results,
+    @JsonKey(name: 'events') List<FootballMatch>? results,
   ) = _IncomingMatchesResponse;
 
   factory IncomingMatchesResponse.fromJson(Map<String, dynamic> json) =>
