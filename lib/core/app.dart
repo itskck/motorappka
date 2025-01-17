@@ -2,6 +2,7 @@ import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:motorappka/bloc/attendance/attendance_cubit.dart';
 import 'package:motorappka/bloc/league_table/league_table_cubit.dart';
 import 'package:motorappka/bloc/last_matches/last_matches_cubit.dart';
 import 'package:motorappka/bloc/ticket/ticket_cubit.dart';
@@ -40,6 +41,9 @@ class _MotorappkaState extends State<Motorappka> {
             ),
             BlocProvider<TicketCubit>(
               create: (context) => TicketCubit(),
+            ),
+            BlocProvider<AttendanceCubit>(
+              create: (context) => AttendanceCubit(),
             ),
           ],
           child: Builder(builder: (context) {

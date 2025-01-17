@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:motorappka/bloc/attendance/attendance_cubit.dart';
 import 'package:motorappka/bloc/league_table/league_table_cubit.dart';
 import 'package:motorappka/bloc/last_matches/last_matches_cubit.dart';
 import 'package:motorappka/bloc/upcoming_matches/upcoming_matches_cubit.dart';
@@ -49,6 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
       context.read<LastMatchesCubit>().fetchLastMatches(),
       context.read<UpcomingMatchesCubit>().fetchUpcomingMatches(),
       context.read<LeagueTableCubit>().fetchLeagueTable(),
+      context.read<AttendanceCubit>().checkAttendance(),
     ]);
 
     // ignore: use_build_context_synchronously
